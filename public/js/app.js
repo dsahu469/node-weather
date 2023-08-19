@@ -26,7 +26,8 @@ weatherForm.addEventListener('submit', (e) => {
     document.getElementById('messagecard').style.display = 'block';
     messageBar.innerHTML                                 = 'Loading... Please wait..!!!';
 
-    fetch('http://localhost:3000/weather?address=' + address.value + '').then((response) => {
+    // fetch('http://localhost:3000/weather?address=' + address.value + '').then((response) => {
+    fetch('/weather?address=' + address.value + '').then((response) => {
         response.json().then((parseData) => {
             if(parseData.error){
                 messageBar.innerHTML     = parseData.error;
